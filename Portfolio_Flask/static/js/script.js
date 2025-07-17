@@ -1,4 +1,3 @@
-
 // DOM Elements
 const navbar = document.getElementById("navbar")
 const mobileMenuBtn = document.getElementById("mobileMenuBtn")
@@ -122,101 +121,27 @@ function updateActiveNavLink() {
   })
 }
 
-// Skills Carousel
-const skills = {
-  Languages: [
-    { name: "C", icon: "/static/images/c.png", level: 4 },
-    { name: "C++", icon: "/static/images/c%2B%2B.png", level: 4 },
-    { name: "Java", icon: "/static/images/java.png", level: 4 },
-    { name: "Python", icon: "/static/images/python.png", level: 4 },
-    { name: "R", icon: "/static/images/R_logo.png", level: 4 },
-  ],
-  Tools: [
-    { name: "MySQL", icon: "/static/images/mysql.png", level: 4 },
-    { name: "Tableau", icon: "/static/images/tableau.png", level: 4 },
-    { name: "MS-Excel", icon: "/static/images/Ms-Excel.png", level: 4 },
-    { name: "Git", icon: "/static/images/git.png", level: 4 },
-  ],
-  Other: [
-    { name: "Data Structures and Algorithms", icon: "/static/images/dsa.jpg", level: 4 },
-    { name: "Problem-Solving", icon: "/static/images/problem.jpg", level: 4 },
-    { name: "UI/UX Design", icon: "/static/images/ui.png", level: 4 },
-  ]
-}
 
-function renderSkills(category) {
-  const skillsTrack = skillsCarousel.querySelector(".skills-track")
-  skillsTrack.innerHTML = ""
+// document.addEventListener("DOMContentLoaded", () => {
+//   // Initialize skills with default category
+//   renderSkills("Languages");
 
-  skills[category].forEach((skill) => {
-    const skillCard = document.createElement("div")
-    skillCard.className = "skill-card"
+//   // Skills Tab Switching
+//   if (skillsTabs) {
+//     skillsTabs.forEach((tab) => {
+//       tab.addEventListener("click", () => {
+//         skillsTabs.forEach((t) => t.classList.remove("active"))
+//         tab.classList.add("active")
 
-    const fullLevel = Math.floor(skill.level)
-    const hasHalf = skill.level % 1 !== 0
+//         const category = tab.dataset.category
+//         renderSkills(category)
+//       })
+//     })
+//   }
 
-    const dotsHTML = Array.from({ length: 5 }, (_, i) => {
-      if (i < fullLevel) {
-        return '<div class="skill-dot filled"></div>'
-      } else if (i === fullLevel && hasHalf) {
-        return '<div class="skill-dot half-filled"></div>'
-      } else {
-        return '<div class="skill-dot"></div>'
-      }
-    }).join("")
-
-    const skillContent = `
-      <img src="${skill.icon}" alt="${skill.name}" class="skill-icon" onerror="this.onerror=null;this.src='/static/images/default_skill.png';">
-      <h3 class="skill-name">${skill.name}</h3>
-      <div class="skill-level">${dotsHTML}</div>
-    `
-
-    skillCard.innerHTML = skillContent
-    skillsTrack.appendChild(skillCard)
-  })
-}
-
-// function renderSkills(category) {
-//   if (!skillsCarousel) return
-
-//   const skillsTrack = skillsCarousel.querySelector(".skills-track")
-//   skillsTrack.innerHTML = ""
-
-//   skills[category].forEach((skill) => {
-//     const skillCard = document.createElement("div")
-//     skillCard.className = "skill-card"
-
-//     const skillContent = `
-//             <img src="${skill.icon}" alt="${skill.name}" class="skill-icon">
-//             <h3 class="skill-name">${skill.name}</h3>
-//             <div class="skill-level">
-//                 ${Array.from(
-//                   { length: 5 },
-//                   (_, i) => `<div class="skill-dot ${i < skill.level ? "filled" : ""}"></div>`,
-//                 ).join("")}
-//             </div>
-//         `
-
-//     skillCard.innerHTML = skillContent
-//     skillsTrack.appendChild(skillCard)
-//   })
-// }
-
-// Initialize skills with default category
-renderSkills("Languages")
-
-// Skills Tab Switching
-if (skillsTabs) {
-  skillsTabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      skillsTabs.forEach((t) => t.classList.remove("active"))
-      tab.classList.add("active")
-
-      const category = tab.dataset.category
-      renderSkills(category)
-    })
-  })
-}
+//   handleScroll()
+//   updateActiveNavLink()
+// })
 
 // Contact Form Submission
 if (contactForm) {
@@ -346,7 +271,3 @@ function initBackgroundCanvas() {
 initBackgroundCanvas()
 
 // Initialize the page
-document.addEventListener("DOMContentLoaded", () => {
-  handleScroll()
-  updateActiveNavLink()
-})

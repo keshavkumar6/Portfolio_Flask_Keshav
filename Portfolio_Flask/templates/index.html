@@ -232,15 +232,45 @@
             </div>
             <div class="skills-container">
                 <div class="skills-tabs">
-                    {% for category in data.skills.keys() %}
-                    <button class="skills-tab {% if loop.first %}active{% endif %}" data-category="{{ category }}">
-                        {{ category }}
-                    </button>
-                    {% endfor %}
+                    <button class="skills-tab active">Languages</button>
+                    <button class="skills-tab">Technologies/Frameworks</button>
+                    <button class="skills-tab">Other Skills</button>
                 </div>
-                <div class="skills-carousel" id="skillsCarousel">
-                    <div class="skills-track" id="skillsTrack">
-                        <!-- Skills will be populated by JavaScript -->
+                <div class="skills-carousel">
+                    <div class="skills-track">
+                        <!-- Languages -->
+                        <div class="skills-category-block">
+                          <div class="skills-category-title">Languages</div>
+                          <div class="skills-category">
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/c.png') }}" alt="C" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/c++.png') }}" alt="C++" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/java.png') }}" alt="Java" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/R_logo.png') }}" alt="R" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/python.png') }}" alt="Python" class="skill-icon-img"></div>
+                          </div>
+                        </div>
+                        <!-- Technologies/Frameworks -->
+                        <div class="skills-category-block">
+                          <div class="skills-category-title">Technologies / Frameworks</div>
+                          <div class="skills-category">
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/mysql.png') }}" alt="MySQL" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/tableau.png') }}" alt="Tableau" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/Ms-Excel.png') }}" alt="MS-Excel" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/git.png') }}" alt="Git" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/github.jpg') }}" alt="GitHub" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/powerbi.jpg') }}" alt="Power BI" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/vscode.jpg') }}" alt="VS Code" class="skill-icon-img"></div>
+                          </div>
+                        </div>
+                        <!-- Other Skills -->
+                        <div class="skills-category-block">
+                          <div class="skills-category-title">Other Skills</div>
+                          <div class="skills-category">
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/dsa.jpg') }}" alt="Data Structures and Algorithms" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/problem.jpg') }}" alt="Problem-Solving" class="skill-icon-img"></div>
+                            <div class="skill-icon"><img src="{{ url_for('static', filename='images/ui.png') }}" alt="UI/UX Design" class="skill-icon-img"></div>
+                          </div>
+                        </div>
                     </div>
                 </div>
             </div>

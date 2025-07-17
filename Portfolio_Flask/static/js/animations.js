@@ -1,4 +1,3 @@
-
 // Enhanced Portfolio Animations and Interactions
 
 // Global variables
@@ -320,17 +319,19 @@ function initSkillsAnimation() {
 // Render Skills with Animation
 function renderSkills(category, skills) {
     const skillsTrack = document.getElementById('skillsTrack');
-    
-    // Clear existing skills
     skillsTrack.innerHTML = '';
-    
-    // Create skill cards
+
+    if (!Array.isArray(skills)) {
+        console.error('renderSkills: skills is not an array for category', category, skills);
+        return;
+    }
+
     skills.forEach((skill, index) => {
         const skillCard = document.createElement('div');
         skillCard.className = 'skill-card';
         skillCard.innerHTML = `
             <div class="skill-icon">
-                <i class="fab fa-${skill.name.toLowerCase().replace(/[^a-z]/g, '')}"></i>
+                <img src="${skill.icon}" alt="${skill.name}" class="skill-icon-img">
             </div>
             <div class="skill-name">${skill.name}</div>
             <div class="skill-progress">
@@ -439,29 +440,29 @@ function initProjectCards() {
 }
 
 // Smooth Scrolling
-function initSmoothScrolling() {
-    const links = document.querySelectorAll('a[href^="#"]');
+// function initSmoothScrolling() {
+//     const links = document.querySelectorAll('a[href^="#"]');
     
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
+//     links.forEach(link => {
+//         link.addEventListener('click', (e) => {
+//             e.preventDefault();
             
-            const targetId = link.getAttribute('href').substring(1);
-            const target = document.getElementById(targetId);
+//             const targetId = link.getAttribute('href').substring(1);
+//             const target = document.getElementById(targetId);
             
-            if (target) {
-                gsap.to(window, {
-                    duration: 1,
-                    scrollTo: {
-                        y: target,
-                        offsetY: 80
-                    },
-                    ease: "power2.inOut"
-                });
-            }
-        });
-    });
-}
+//             if (target) {
+//                 gsap.to(window, {
+//                     duration: 1,
+//                     scrollTo: {
+//                         y: target,
+//                         offsetY: 80
+//                     },
+//                     ease: "power2.inOut"
+//                 });
+//             }
+//         });
+//     });
+// }
 
 // Initialize all animations
 function initAllAnimations() {
@@ -473,7 +474,7 @@ function initAllAnimations() {
     initContactForm();
     initParallaxEffect();
     initProjectCards();
-    initSmoothScrolling();
+    // initSmoothScrolling();
 }
 
 // Wait for DOM to be ready

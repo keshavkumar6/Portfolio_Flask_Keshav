@@ -1,3 +1,117 @@
+/* Skills Section Category Headings */
+.skills-category-block {
+  margin-bottom: 2.5rem;
+}
+.skills-category-title {
+  font-family: 'Montserrat', 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+  text-align: left;
+  padding-left: 0.5rem;
+}
+.skills.section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  background: #fffbe7;
+}
+.skills-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.skills-carousel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+.skills-track {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  justify-content: center;
+}
+.skills-category {
+  width: 100%;
+  min-height: 180px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2.5rem 2rem;
+  justify-items: center;
+  align-items: center;
+  background: rgba(245,245,255,0.05);
+  border-radius: 1.5rem;
+  padding: 2.5rem 1rem 2.5rem 1rem;
+  box-shadow: 0 2px 16px 0 rgba(80,80,120,0.07);
+}
+/* --- Improved Skills Section Layout --- */
+.skills-container {
+  padding: 2.5rem 0 2.5rem 0;
+}
+.skills-carousel {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 0 2rem 0;
+}
+.skills-track {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.skills-category {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2.5rem 2rem;
+  justify-items: center;
+  align-items: center;
+  background: rgba(245,245,255,0.05);
+  border-radius: 1.5rem;
+  padding: 2.5rem 1rem 2.5rem 1rem;
+  box-shadow: 0 2px 16px 0 rgba(80,80,120,0.07);
+}
+
+.skill-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0;
+  border-radius: 1rem;
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  box-shadow: 0 1px 8px 0 rgba(80,80,120,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  position: relative;
+}
+.skill-icon:hover {
+  transform: translateY(-6px) scale(1.07);
+  box-shadow: 0 4px 24px 0 rgba(124,58,237,0.13);
+}
+.skill-icon-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  border-radius: 1rem !important;
+  display: block !important;
+  background: none !important;
+  box-shadow: none !important;
+  position: static !important;
+}
+.skill-icon span {
+  display: none !important;
+}
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 @tailwind base;
@@ -1132,18 +1246,40 @@ body.light-theme, .light-theme .hero, .light-theme .section, .light-theme .about
   box-shadow: var(--shadow-lg);
 }
 
-.skill-icon {
+/* .skill-icon {
   width: 64px;
   height: 64px;
   min-width: 40px;
   min-height: 40px;
   object-fit: contain;
   margin-bottom: 1rem;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #fff;
   border: 2px solid #a259ec;
   border-radius: 12px;
-  box-shadow: 0 2px 8px 0 #a259ec22;
+} */
+
+.skill-icon {
+  width: 64px;
+  height: 64px;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 2px solid #a259ec;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.skill-icon-img {
+  max-width: 48px;
+  max-height: 48px;
+  display: block;
+  object-fit: contain;
 }
 
 .skill-name {
@@ -1869,20 +2005,33 @@ body, .hero, .section, .about, .projects, .skills, .achievements, .education, .c
 }
 
 /* DEBUG: Make skill icon images visible for troubleshooting */
+
 .skill-icon {
-  border: 2px solid red !important;
-  background: yellow !important;
-  min-width: 60px !important;
-  min-height: 60px !important;
+  border: 2px solid #e2e8f0 !important; /* subtle light border */
+  background: #fff !important;
+  width: 120px !important;
+  height: 120px !important;
+  min-width: 120px !important;
+  min-height: 120px !important;
+  max-width: 120px !important;
+  max-height: 120px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  border-radius: 1.2rem !important;
+  box-shadow: 0 2px 16px 0 rgba(80,80,120,0.07) !important;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  position: relative;
 }
 
 .skill-icon img, .skill-icon-img {
-  border: 2px solid blue !important;
-  background: #fff !important;
-  max-width: 48px !important;
-  max-height: 48px !important;
+  border: none !important;
+  background: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
   display: block !important;
 }

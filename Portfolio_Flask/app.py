@@ -64,29 +64,6 @@ portfolio_data = {
             'demo': 'https://keshavkumar6.github.io/scientific-calculator/'
         }
     ],
-    'skills': {
-        'Languages': [
-            {'name': 'C', 'level': 7},
-            {'name': 'C++', 'level': 7},
-            {'name': 'Java', 'level': 6},
-            {'name': 'R', 'level': 8},
-            {'name': 'Python', 'level': 9}
-        ],
-        'Technologies/Frameworks': [
-            {'name': 'MySQL', 'level': 8},
-            {'name': 'Tableau', 'level': 7},
-            {'name': 'MS-Excel', 'level': 8},
-            {'name': 'Git', 'level': 8},
-            {'name': 'GitHub', 'level': 8},
-            {'name': 'Power BI', 'level': 8},
-            {'name': 'VS Code', 'level': 7}
-        ],
-        'Other Skills': [
-            {'name': 'Data Structures and Algorithms', 'level': 8},
-            {'name': 'Problem-Solving', 'level': 8},
-            {'name': 'UI/UX Design', 'level': 7}
-        ]
-    },
     'achievements': [
         {
             'title': 'Summer Training (SQL, RDBMS)',
@@ -146,10 +123,6 @@ def get_projects():
     """API endpoint to get projects"""
     return jsonify(portfolio_data['projects'])
 
-@app.route('/api/skills')
-def get_skills():
-    """API endpoint to get skills"""
-    return jsonify(portfolio_data['skills'])
 
 @app.route('/api/contact', methods=['POST'])
 def contact():
